@@ -1,0 +1,111 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom color palette for eBooks theme */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 215 25% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 12%;
+
+    --primary: 14 100% 60%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 215 25% 96%;
+    --secondary-foreground: 215 25% 12%;
+
+    --muted: 215 25% 96%;
+    --muted-foreground: 215 12% 46%;
+
+    --accent: 215 25% 96%;
+    --accent-foreground: 215 25% 12%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 20% 91%;
+    --input: 215 20% 91%;
+    --ring: 14 100% 60%;
+
+    --radius: 0.75rem;
+
+    /* Custom eBook colors */
+    --book-navy: 215 25% 12%;
+    --book-orange: 14 100% 60%;
+    --book-cream: 45 37% 96%;
+    --book-gray: 215 12% 46%;
+  }
+
+  .dark {
+    --background: 215 25% 12%;
+    --foreground: 0 0% 98%;
+
+    --card: 215 25% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 215 25% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 14 100% 60%;
+    --primary-foreground: 215 25% 12%;
+
+    --secondary: 215 20% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 215 20% 18%;
+    --muted-foreground: 215 12% 65%;
+
+    --accent: 215 20% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 215 20% 18%;
+    --input: 215 20% 18%;
+    --ring: 14 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  .book-card {
+    @apply bg-card rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 overflow-hidden border;
+  }
+  
+  .book-card:hover {
+    @apply scale-105 shadow-xl;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent;
+  }
+  
+  .nav-link {
+    @apply relative text-foreground hover:text-primary transition-colors duration-200;
+  }
+  
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-200;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+}
